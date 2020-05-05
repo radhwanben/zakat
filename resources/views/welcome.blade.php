@@ -107,7 +107,7 @@
         </a>
 
 
-        <a href="#" >
+        <a href="{{route('Zakatyanimals')}}" >
             <div class="col s4 m3">
                 <div class="card brown lighten-3">
                     <div class="card-content white-text">

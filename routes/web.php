@@ -71,3 +71,47 @@ Route::post('zakaty/money',[
 	'as'=>'Zakatymoneycal'
 
 ]);
+
+Route::get('zakaty/animals',[
+	'uses' =>'ZakatController@animalsshow',
+	'as'=>'Zakatyanimals'
+
+]);
+
+Route::get('zakaty/animals/sheep',[
+	'uses' =>'ZakatController@sheepshow',
+	'as'=>'Zakatysheep'
+
+]);
+
+Route::post('zakaty/animals/sheep',[
+	'uses' =>'ZakatController@calculatesheep',
+	'as'=>'Zakatysheepcalu'
+
+]);
+
+Route::get('zakaty/animals/cow',[
+	'uses' =>'ZakatController@cowshow',
+	'as'=>'Zakatycow'
+
+]);
+
+
+Route::post('zakaty/animals/cow',[
+	'uses' =>'ZakatController@calculatecow',
+	'as'=>'Zakatycowcalu'
+
+]);
+
+
+Route::get('zakaty/animals/camel',[
+	'uses' =>'ZakatController@camelshow',
+	'as'=>'Zakatycamel'
+
+]);
+
+Route::post('zakaty/animals/camel',[
+	'uses' =>'ZakatController@calculatecamel',
+	'as'=>'Zakatycamelcalu'
+
+]);

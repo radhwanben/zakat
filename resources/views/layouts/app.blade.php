@@ -67,7 +67,7 @@
     <div class="slider" style="height: 700px">
         <ul class="slides" style="height: 700px">
             <li>
-                <img src="https://i.pinimg.com/originals/af/28/0a/af280ab4ea13a563edeba10995cbd599.jpg">
+                <img src="https://journalistesfaxien.tn/wp-content/uploads/2020/04/%D8%A7%D9%84%D8%B2%D9%83%D8%A7%D8%A9.jpg">
                 <!-- random image -->
                 <div class="caption center-align">
                     <h3>   نتيح لك أخي المسلم  أو أختي المسلمة  حساب قيمة الزكاة إلكترونيًا</h3>

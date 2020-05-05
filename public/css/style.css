@@ -19,6 +19,14 @@ ul:not(.browser-default){
     width: 75px;
 }
 
+.slider{
+  height: 700px
+}
+
+.slides{
+  height: 700px
+}
+
 .slider .indicators .indicator-item {
     background-color: #666666;
     border: 3px solid #ffffff;
@@ -90,4 +98,14 @@ ul:not(.browser-default){
 .labelvalue{
   font-size: 30px;
   color: #010000;
+}
+
+.sextion{
+  background-color: black;
+}
+
+.mb-3 {
+  margin-top: 45px;
+  padding-right: 377px;
+  color: white;
 }

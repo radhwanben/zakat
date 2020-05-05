@@ -5,7 +5,7 @@
 
 <div class="row">
     <section>
-        <a href="shorturl.at/uEGP5" target="_blank">
+        <a href="{{route('Zakatymoney')}}" target="_blank">
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
@@ -18,7 +18,7 @@
         </div>
     </a>
 
-    <a href="shorturl.at/uEGP5" target="_blank">
+    <a href="{{route('Zakatyglod')}}" >
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
@@ -31,7 +31,7 @@
         </div>
     </a>
 
-    <a href="shorturl.at/uEGP5" target="_blank" onclick="showform">
+    <a href="{{route('Zakatysilver')}}" >
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
@@ -45,7 +45,7 @@
     </a>
 
 
-    <a href="shorturl.at/uEGP5" target="_blank">
+    <a href="{{route('Zakatyanimals')}}" >
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
@@ -59,7 +59,7 @@
     </a>
 
 
-    <a href="shorturl.at/uEGP5" target="_blank">
+    <a href="shorturl.at/uEGP5" >
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
@@ -76,7 +76,7 @@
 
 
 
-    <a href="shorturl.at/uEGP5" target="_blank">
+    <a href="shorturl.at/uEGP5">
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
@@ -92,7 +92,7 @@
 
 
 
-    <a href="shorturl.at/uEGP5" target="_blank">
+    <a href="shorturl.at/uEGP5">
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
@@ -109,7 +109,7 @@
 
 
 
-    <a href="shorturl.at/uEGP5" target="_blank">
+    <a href="shorturl.at/uEGP5" >
         <div class="col s4 m3">
             <div class="card brown lighten-3">
                 <div class="card-content white-text">
