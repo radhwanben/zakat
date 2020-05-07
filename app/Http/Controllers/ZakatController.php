@@ -4,26 +4,50 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use SweetAlert;
+use Ixudra\Curl\Facades\Curl;
 class ZakatController extends Controller
 {
-    public function show(){
+
+    /***
+     * this function to conect to api to get the gold and the silver price 
+     * it take the X-API-KEY you an get it from goldpricez.com
+     * this function can display more things such us [gram_in_usd ,gram_to_ounce_formula,silver_ounce_in_tnd,ounce_in_tnd .....]
+     */
+
+    public function conecttoapi()
+    {
+        $nisab=84;
+        $response = Curl::to('http://goldpricez.com/api/rates/currency/tnd/measure/gram/metal/all')
+        ->withData( array( 'X-API-KEY' => '38a72cf77c367a58a76d7fdbef6270be38a72cf7' ) )
+        ->asJson()
+        ->get();
+
+        $res=json_decode($response);
+
+        return $res;
+    }
+
+    public function show()
+    {
         return view('zakat.index');
     }
 
 
-    public function goldshow(){
+    public function goldshow()
+    {
 
         return view('zakat.gold.show');
         
     }
 
 
-    public function calculategold(Request $request){
+    public function calculategold(Request $request)
+    {
         
         $nisab=84;
-        $goldprice=158.52;
         
-  
+
+        $goldprice=($this->conecttoapi()->gram_in_tnd);
 
         $goldvalue= $request->input('goldvalue');
 
@@ -33,25 +57,29 @@ class ZakatController extends Controller
         }else{
 
             $zakatvalue= (($goldvalue * $goldprice) * 2.5 )/ 100 ;
-            alert()->success('الزكاة المستحقة',$zakatvalue .'دينار  ')->persistent("Close");
+            alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
             return redirect()->back();
         }
+     
 
     }
 
-    public function silvershow(){
+    public function silvershow()
+    {
 
         return view('zakat.silver.show');
         
     }
 
 
-    public function calculatesilver(Request $request){
+    public function calculatesilver(Request $request)
+    {
         
-        $nisabsilver=585;
-        $silverprice=1.39;
+        $nisabsilver=585;        
+       
+
+        $silverprice=($this->conecttoapi()->silver_gram_in_tnd);
         
-  
 
         $silvervalue= $request->input('silvervalue');
 
@@ -61,21 +89,23 @@ class ZakatController extends Controller
         }else{
 
             $zakatvalue= (($silvervalue * $silverprice) * 2.5 )/ 100 ;
-            alert()->success('الزكاة المستحقة',$zakatvalue .'دينار  ')->persistent("Close");
+            alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
             return redirect()->back();
         }
 
     }
 
 
-    public function moneyshow(){
+    public function moneyshow()
+    {
 
         return view('zakat.money.show');
         
     }
 
 
-    public function calculatemoney(Request $request){
+    public function calculatemoney(Request $request)
+    {
         
         $nisabmoney=11880;  
 
@@ -94,12 +124,14 @@ class ZakatController extends Controller
     }
 
 
-    public function animalsshow(){
+    public function animalsshow()
+    {
         return view('zakat.animals.index');
     }
 
 
-    public function sheepshow(){
+    public function sheepshow()
+    {
         return view('zakat.animals.sheep');
     }
 

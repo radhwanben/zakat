@@ -115,3 +115,6 @@ Route::post('zakaty/animals/camel',[
 	'as'=>'Zakatycamelcalu'
 
 ]);
+
+
+
