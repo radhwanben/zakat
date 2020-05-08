@@ -16,7 +16,6 @@ class ZakatController extends Controller
 
     public function conecttoapi()
     {
-        $nisab=84;
         $response = Curl::to('http://goldpricez.com/api/rates/currency/tnd/measure/gram/metal/all')
         ->withData( array( 'X-API-KEY' => '38a72cf77c367a58a76d7fdbef6270be38a72cf7' ) )
         ->asJson()
