@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    alert()->success('الموقع يعمل بالدينار التونسي ', 'هذا الموقع يعمل حسب فقه الإمام مالك')->autoclose(5000);
+    alert()->success('لموقع يعمل بالدينار التونسي ')->autoclose(5000);
     return view('welcome');
 })->name('home');
 
