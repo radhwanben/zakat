@@ -8,6 +8,9 @@ use Ixudra\Curl\Facades\Curl;
 class ZakatController extends Controller
 {
 
+
+    protected $validYear =['hijri','miladi'];
+
     /***
      * this function to conect to api to get the gold and the silver price 
      * it take the X-API-KEY you an get it from goldpricez.com
@@ -49,17 +52,39 @@ class ZakatController extends Controller
         $goldprice=($this->conecttoapi()->gram_in_tnd);
 
         $goldvalue= $request->input('goldvalue');
+        $year =$request->input('year');
 
-        if($goldvalue < $nisab){
-             alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
-             return redirect()->back();
-        }else{
-
-            $zakatvalue= (($goldvalue * $goldprice) * 2.5 )/ 100 ;
-            alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
+        if(!in_array($year ,$this->validYear))
+        {
+            $error =  alert()->error('الرجاء إعادة المحاولة ')->autoclose(3500);
             return redirect()->back();
+                   
         }
-     
+
+        if($year === "hijri")
+        {
+            if($goldvalue < $nisab){
+                alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
+                return redirect()->back();
+            }else{
+
+                $zakatvalue= (($goldvalue * $goldprice) * 2.5 )/ 100 ;
+                alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
+                return redirect()->back();
+            }
+        }
+        elseif($year === "miladi")
+        {
+            if($goldvalue < $nisab){
+                alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
+                return redirect()->back();
+            }else{
+
+                $zakatvalue= (($goldvalue * $goldprice) * 2.57 )/ 100 ;
+                alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
+                return redirect()->back();
+            }
+        }
 
     }
 
@@ -79,19 +104,41 @@ class ZakatController extends Controller
 
         $silverprice=($this->conecttoapi()->silver_gram_in_tnd);
         
+        $year =$request->input('year');
+
 
         $silvervalue= $request->input('silvervalue');
 
-        if($silvervalue < $nisabsilver){
-             alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
-             return redirect()->back();
-        }else{
-
-            $zakatvalue= (($silvervalue * $silverprice) * 2.5 )/ 100 ;
-            alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
+        if(!in_array($year ,$this->validYear))
+        {
+            $error =  alert()->error('الرجاء إعادة المحاولة ')->autoclose(3500);
             return redirect()->back();
+                   
         }
+        if($year === "hijri")
+        {
+            if($silvervalue < $nisabsilver){
+                alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
+                return redirect()->back();
+            }else{
 
+                $zakatvalue= (($silvervalue * $silverprice) * 2.5 )/ 100 ;
+                alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
+                return redirect()->back();
+            }
+        }
+        elseif($year === "miladi")
+        {
+            if($silvervalue < $nisabsilver){
+                alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
+                return redirect()->back();
+            }else{
+
+                $zakatvalue= (($silvervalue * $silverprice) * 2.57 )/ 100 ;
+                alert()->success('الزكاة المستحقة',round($zakatvalue,3) .'دينار  ')->persistent("Close");
+                return redirect()->back();
+            }
+        }
     }
 
 
@@ -108,17 +155,47 @@ class ZakatController extends Controller
         
         $nisabmoney=11880;  
 
-        $moneyvalue= $request->input('moneyvalue');
+        intval($moneyvalue= $request->input('moneyvalue'));
 
-        if($moneyvalue < $nisabmoney){
-             alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
-             return redirect()->back();
-        }else{
+        $yourmoney= str_replace( ',', '', $moneyvalue );
 
-            $zakatvalue= ($moneyvalue  * 2.5 )/ 100 ;
-            alert()->success('الزكاة المستحقة',$zakatvalue .'دينار  ')->persistent("Close");
+        $year =$request->input('year');
+
+
+        if(!in_array($year ,$this->validYear))
+        {
+            $error =  alert()->error('الرجاء إعادة المحاولة ')->autoclose(3500);
             return redirect()->back();
+                   
         }
+        if($year === "hijri")
+        {
+            if($yourmoney < $nisabmoney){
+                alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
+                return redirect()->back();
+           }else{
+   
+               $zakatvalue= ($yourmoney  * 2.5 )/ 100 ;
+               alert()->success('الزكاة المستحقة',$zakatvalue .'دينار  ')->persistent("Close");
+               return redirect()->back();
+           }
+        }
+        elseif($year === "miladi")
+            {
+                if($yourmoney < $nisabmoney){
+                    alert()->error('عذراً ', 'لم تبلغ النصاب  بعد لا زكاة عليك ')->autoclose(3500);
+                    return redirect()->back();
+            }else{
+    
+                $zakatvalue= ($yourmoney  * 2.57 )/ 100 ;
+                alert()->success('الزكاة المستحقة',$zakatvalue .'دينار  ')->persistent("Close");
+                return redirect()->back();
+            }
+        }
+
+
+
+
 
     }
 

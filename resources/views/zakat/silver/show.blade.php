@@ -1,20 +1,32 @@
 @extends('layouts.app')
 @section('content')
 
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="row" style="background-color:#ffffff45;color:#2bbbad">
             <div class="row">
             <form class="col m8 offset-m2 s12" method="POST" action="{{route('Zakatysilvercal')}}">
                {{ csrf_field() }}
                 <div class="row">
-                    <label class="labelvalue" for="silvervalue"> وزن الفضة بجرام</label>
                     <div class="input-field col s12">
-                        <input id="silvervalue" name="silvervalue" type="text">
+                        <select name="year">
+                            <option disabled selected>اختر السنة</option>
+                            <option value="hijri"> السنة الهجرية</option>
+                            <option value="miladi"> السنة الميلادية</option>
+                          </select>
+                        <input id="silvervalue" name="silvervalue" type="text" placeholder="وزن الفضة بجرام">
                     <button class="btn btn-large green lighten-3" type="sbumit" name="action">احساب الأن <img  class="buttonicons" src="https://img.icons8.com/pastel-glyph/50/000000/calculator.png"/></button>
 
                     </div>
                 </div>
-                
-
             </form>
         </div>
     </div>
