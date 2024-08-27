@@ -29,7 +29,7 @@
 
 
 <body>
-    @include('sweet::alert')
+@include('sweetalert::alert')
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
         <div class="top-right links">
@@ -46,7 +46,6 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">القائمة </i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{route('contact')}}">اتصــل بنــا</a></li>
-                    <li><a href="badges.html">المركز الإعلامي</a></li>
                     <li><a href="{{route('Zakaty')}}">زكــــــاتي</a></li>
                     <li><a href="{{route('home')}}">الرئيسية</a></li>
                 </ul>
@@ -59,7 +58,6 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a class="btn-floating pulse"><i class="material-icons">person</i></a></li>
         <li><a href="{{route('contact')}}">اتصــل بنــا</a></li>
-            <li><a href="badges.html">المركز الإعلامي</a></li>
             <li><a href="{{route('Zakaty')}}">زكــــــاتي</a></li>
             <li><a href="{{route('home')}}">الرئيسية</a></li>
         </ul>
