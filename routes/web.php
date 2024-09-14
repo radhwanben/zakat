@@ -11,13 +11,15 @@
 |
 */
 
+
 Route::get('/', function () {
-    alert()->success('لموقع يعمل بالدينار التونسي ')->autoclose(5000);
+    alert()->info('تنبيه   الموقع يعمل بالدينار التونسي ')->autoclose(5000);
+
     return view('welcome');
 })->name('home');
 
 Route::get('/contact', function () {
-    
+
     return view('contact');
 })->name('contact');
 
